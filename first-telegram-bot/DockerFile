@@ -1,0 +1,6 @@
+FROM adoptopenjdk:11-jre-hotspot
+ARG JAR_FILE=target/*.jar
+ENV BOT_NAME=test_tgb_first_bot
+ENV BOT_TOKEN=6740500472:AAEfNzALZpDQHWpOXRQNtcCUwcZaYFh5VFg
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java", "-Dbot.username=${BOT_NAME}", "-Dbot.token=${BOT_TOKEN}","-jar","/app.jar"]
